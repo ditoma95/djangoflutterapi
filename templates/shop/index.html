@@ -1,0 +1,141 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="flex flex-wrap ">
+    <div class="mt-4">
+        <form action="">
+            <div class="flex rounded-md border-2 border-blue-500 overflow-hidden max-w-md mx-auto font-[sans-serif]">
+              <input type="text" name="itemrechercher" placeholder="Search Something..." class="w-full outline-none bg-white text-gray-600 text-sm px-4 py-3" />
+              <button type='submit' class="flex items-center justify-center bg-[#007bff] px-5">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192.904 192.904" width="16px" class="fill-white">
+                  <path
+                    d="m190.707 180.101-47.078-47.077c11.702-14.072 18.752-32.142 18.752-51.831C162.381 36.423 125.959 0 81.191 0 36.422 0 0 36.423 0 81.193c0 44.767 36.422 81.187 81.191 81.187 19.688 0 37.759-7.049 51.831-18.751l47.079 47.078a7.474 7.474 0 0 0 5.303 2.197 7.498 7.498 0 0 0 5.303-12.803zM15 81.193C15 44.694 44.693 15 81.191 15c36.497 0 66.189 29.694 66.189 66.193 0 36.496-29.692 66.187-66.189 66.187C44.693 147.38 15 117.689 15 81.193z">
+                  </path>
+                </svg>
+              </button>
+            </div>
+        </form>
+
+        
+    </div>
+
+    <div class="mr-52"></div>
+    
+    <div>
+        <div class="font-[sans-serif]">
+            <div class="p-4 mx-auto lg:max-w-7xl sm:max-w-full">
+              <div class="flex items-center justify-between">
+                <h2 class="text-4xl font-extrabold text-gray-800 mb-12">Nouvelles arrivages</h2>
+                <a class="text-sm italic" href="{% url 'home' %}">listes produits</a>
+              </div>
+              <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                {% for elt in produits %}
+                <div class="bg-gray-50 shadow-md overflow-hidden rounded cursor-pointer hover:-translate-y-2 transition-all relative">
+                  <div class="bg-white w-10 h-10 flex items-center justify-center rounded-full cursor-pointer absolute top-3 right-3">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18px" class="fill-gray-800 inline-block" viewBox="0 0 64 64">
+                      <path
+                        d="M45.5 4A18.53 18.53 0 0 0 32 9.86 18.5 18.5 0 0 0 0 22.5C0 40.92 29.71 59 31 59.71a2 2 0 0 0 2.06 0C34.29 59 64 40.92 64 22.5A18.52 18.52 0 0 0 45.5 4ZM32 55.64C26.83 52.34 4 36.92 4 22.5a14.5 14.5 0 0 1 26.36-8.33 2 2 0 0 0 3.27 0A14.5 14.5 0 0 1 60 22.5c0 14.41-22.83 29.83-28 33.14Z"
+                        data-original="#000000"></path>
+                    </svg>
+                  </div>
+
+
+                  <div class="w-11/12 h-[220px] p-4 overflow-hidden mx-auto aspect-w-16 aspect-h-8 md:mb-2 mb-4">
+                    <img src=" {{elt.image}} " alt="Product 1" class="h-full w-full object-contain" />
+                  </div>
+                  <div class="p-6 bg-white">
+                    <h3 class="text-lg font-bold text-gray-800"> {{ elt.title }} </h3>
+                    <h4 class="text-lg text-gray-700 font-bold mt-2"> {{ elt.price}} </h4>
+                    <p class="text-gray-500 text-sm mt-2"> {{ elt.description }} </p>
+                    <div class="flex space-x-2 mt-6">
+                        <svg class="w-5 fill-[#facc15]" viewBox="0 0 14 13" fill="none"
+                          xmlns="http://www.w3.org/2000/svg">
+                          <path
+                            d="M7 0L9.4687 3.60213L13.6574 4.83688L10.9944 8.29787L11.1145 12.6631L7 11.2L2.8855 12.6631L3.00556 8.29787L0.342604 4.83688L4.5313 3.60213L7 0Z" />
+                        </svg>
+                        <svg class="w-5 fill-[#facc15]" viewBox="0 0 14 13" fill="none"
+                          xmlns="http://www.w3.org/2000/svg">
+                          <path
+                            d="M7 0L9.4687 3.60213L13.6574 4.83688L10.9944 8.29787L11.1145 12.6631L7 11.2L2.8855 12.6631L3.00556 8.29787L0.342604 4.83688L4.5313 3.60213L7 0Z" />
+                        </svg>
+                        <svg class="w-5 fill-[#facc15]" viewBox="0 0 14 13" fill="none"
+                          xmlns="http://www.w3.org/2000/svg">
+                          <path
+                            d="M7 0L9.4687 3.60213L13.6574 4.83688L10.9944 8.29787L11.1145 12.6631L7 11.2L2.8855 12.6631L3.00556 8.29787L0.342604 4.83688L4.5313 3.60213L7 0Z" />
+                        </svg>
+                        <svg class="w-5 fill-[#CED5D8]" viewBox="0 0 14 13" fill="none"
+                          xmlns="http://www.w3.org/2000/svg">
+                          <path
+                            d="M7 0L9.4687 3.60213L13.6574 4.83688L10.9944 8.29787L11.1145 12.6631L7 11.2L2.8855 12.6631L3.00556 8.29787L0.342604 4.83688L4.5313 3.60213L7 0Z" />
+                        </svg>
+                        <svg class="w-5 fill-[#CED5D8]" viewBox="0 0 14 13" fill="none"
+                          xmlns="http://www.w3.org/2000/svg">
+                          <path
+                            d="M7 0L9.4687 3.60213L13.6574 4.83688L10.9944 8.29787L11.1145 12.6631L7 11.2L2.8855 12.6631L3.00556 8.29787L0.342604 4.83688L4.5313 3.60213L7 0Z" />
+                        </svg>
+                    </div> 
+                    <div class="flex item-center mt-4 justify-between">
+                      <div>
+                        <a href="{{elt.id}}">
+                          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-blue-800 cursor-pointer">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178Z" />
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                          </svg>  
+                        </a>
+                      </div>
+                      <div>
+                        <a href="">
+                          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-red-800 cursor-pointer">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 0 0-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 0 0-16.536-1.84M7.5 14.25 5.106 5.272M6 20.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Zm12.75 0a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z" />
+                          </svg>                                                 
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                {% endfor %}
+            </div>
+
+            
+
+
+
+
+            <ul class="flex space-x-4 justify-center mt-10">
+                {% if produits.has_previous %}
+                  <li class="flex items-center justify-center shrink-0 bg-gray-300 w-10 h-10 rounded-lg">
+                    <a href="?page={{ produits.previous_page_number }}">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="w-4 fill-gray-400" viewBox="0 0 55.753 55.753">
+                        <path
+                        d="M12.745 23.915c.283-.282.59-.52.913-.727L35.266 1.581a5.4 5.4 0 0 1 7.637 7.638L24.294 27.828l18.705 18.706a5.4 5.4 0 0 1-7.636 7.637L13.658 32.464a5.367 5.367 0 0 1-.913-.727 5.367 5.367 0 0 1-1.572-3.911 5.369 5.369 0 0 1 1.572-3.911z"
+                        data-original="#000000" />
+                      </svg> 
+                    </a>
+                  </li>
+                {% endif %}
+
+                <li class="flex items-center justify-center shrink-0 bg-blue-500  border-2 border-blue-500 cursor-pointer text-base font-bold text-white w-10 h-10 rounded-lg">
+                  <a href="">{{ produits.number }}</a>
+                </li>
+
+                {% if produits.has_next %}
+
+                  <li class="flex items-center justify-center shrink-0 hover:bg-gray-50 border-2 cursor-pointer w-10 h-10 rounded-lg"><a href="?page={{ produits.next_page_number}}">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-4 fill-gray-400 rotate-180" viewBox="0 0 55.753 55.753">
+                      <path
+                      d="M12.745 23.915c.283-.282.59-.52.913-.727L35.266 1.581a5.4 5.4 0 0 1 7.637 7.638L24.294 27.828l18.705 18.706a5.4 5.4 0 0 1-7.636 7.637L13.658 32.464a5.367 5.367 0 0 1-.913-.727 5.367 5.367 0 0 1-1.572-3.911 5.369 5.369 0 0 1 1.572-3.911z"
+                      data-original="#000000" />
+                    </svg>
+                  </a>
+                  </li>
+                {% endif %}
+            </ul>
+
+
+        </div>
+      </div>
+</div>
+
+
+
+{% endblock %}
