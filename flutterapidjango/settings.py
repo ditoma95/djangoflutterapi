@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'shop',
+    'authen',
 ]
 
 MIDDLEWARE = [
@@ -71,7 +72,7 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'flutterapidjango.wsgi.application'
-
+LOGIN_URL = 'connexion'
 
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases

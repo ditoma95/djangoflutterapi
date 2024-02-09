@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/build/tailwind.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" ></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js" ></script>
+    <title>Document</title>
+</head>
+<body>
+    {% if messages %}
+        <div>
+            {% for message in  messages %}
+            <p> {{message}} </p>
+            {% endfor %}
+        </div>
+    {% endif %}
+
+
+    <div class="bg-gray-50 font-[sans-serif] text-[#333]">
+        <div class="min-h-screen flex flex-col items-center justify-center py-6 px-4">
+            <div class="max-w-md w-full border py-8 px-6 rounded border-gray-300 bg-white">
+                
+                <h2 class="text-center text-3xl font-extrabold">
+                    Se connecter
+                </h2>
+                <form action="{% url 'connexion' %}" method="post">
+                    {% csrf_token %}
+                  <div class="mb-8">
+                    <input name="username" type="text"  required class="w-full text-sm px-4 py-3 rounded outline-none border-2 focus:border-blue-500" placeholder="Email address" />
+                  </div>
+                  <div class="mb-8">
+                    <input name="password" type="password" autocomplete="current-password" required class="w-full text-sm px-4 py-3 rounded outline-none border-2 focus:border-blue-500" placeholder="Password" />
+                  </div>
+                  <div class="flex items-center justify-between gap-4">
+                    <div class="flex items-center">
+                      <input id="remember-me" name="remember-me" type="checkbox" class="h-4 w-4 shrink-0 text-blue-600 focus:ring-blue-500 border-gray-300 rounded" />
+                      <label for="remember-me" class="ml-3 block text-sm">
+                        Remember me
+                      </label>
+                    </div>
+                    <div>
+                      <a href="jajvascript:void(0);" class="text-sm text-blue-600 hover:text-blue-500">
+                        Forgot Password?
+                      </a>
+                    </div>
+                  </div>
+                  <div class="!mt-10">
+                    <button type="submit" class="w-full py-2.5 px-4 text-sm rounded text-white bg-blue-600 hover:bg-blue-700 focus:outline-none">  connexion
+                    </button>
+                  </div>
+                </form>
+
+                <div class="mt-6 flex items-center justify-between">
+                    <p>Pas de compte ?</p>
+                    <a class="text-blue-800 " href="{% url 'inscription' %}">inscriptoin</a>
+                    
+                </div>
+              </div>
+            </div>
+        </div>
+
+
+
+</body>
+</html>
+
+

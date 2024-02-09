@@ -20,3 +20,4 @@ def index(request):
 def show(request, id):
     unproduit = Product.objects.get(id=id)
     return render(request,'shop/show.html',{'unproduit' : unproduit})
+
