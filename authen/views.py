@@ -37,4 +37,4 @@ def dashbord(request):
 
 def deconnexion(request):
     logout(request)
-    return redirect('connexion')
+    return redirect('connexion')                
